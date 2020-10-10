@@ -38,6 +38,36 @@ function ds_delete_param($ids){
     }
 }
 
+/**
+ * Notes:获取特定字符后面的字符串
+ * @auther: xxf
+ * Date: 2019/8/5
+ * Time: 21:07
+ * @param $string
+ * @param $keyword
+ * @return bool|string
+ */
+function get_behind_string($string,$keyword)
+{
+    $result = mb_substr($string,mb_strripos($string,$keyword)+1);
+    return $result;
+}
+ 
+/**
+ * Notes:获取特定字符前面的字符串
+ * @auther: xxf
+ * Date: 2019/8/5
+ * Time: 21:07
+ * @param $string
+ * @param $keyword
+ * @return bool|string
+ */
+function get_front_string($string,$keyword)
+{
+    $result = mb_substr($string,0,mb_strripos($string,$keyword));
+    return $result;
+}
+
 
 /**
  * 获取客户端浏览器

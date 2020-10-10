@@ -138,16 +138,19 @@
           ></el-time-select>
         </el-form-item>
         <el-form-item label="分配地域">
-          <el-input v-model="dialogForm.express_address"></el-input>
+          <el-input v-model="dialogForm.express_address" placeholder="输入分配地域(可输入多个地区名称)"></el-input>
+        </el-form-item>
+        <el-form-item label="排除城市">
+          <el-input v-model="dialogForm.express_expluce" placeholder="输入需要排除的城市名称(可以不填)"></el-input>
         </el-form-item>
         <el-form-item label="分配来源">
-          <el-input v-model="dialogForm.express_source"></el-input>
+          <el-input v-model="dialogForm.express_source" placeholder="输入分配的资源来源"></el-input>
         </el-form-item>
         <el-form-item label="分配项目">
-          <el-input v-model="dialogForm.express_advisory"></el-input>
+          <el-input v-model="dialogForm.express_advisory" placeholder="输入分配项目"></el-input>
         </el-form-item>
         <el-form-item label="分配资源数量">
-          <el-input-number v-model="dialogForm.nums" :min="1"></el-input-number>
+          <el-input-number v-model="dialogForm.nums" :min="1" placeholder="输入分配的资源数量"></el-input-number>
         </el-form-item>
         <el-form-item label="分配状态">
           <el-switch
@@ -192,6 +195,7 @@ export default {
         { prop: 'start_time', label: '分配开始时间', isShow: true },
         { prop: 'end_time', label: '分配结束时间', isShow: true },
         { prop: 'express_address', label: '分配地域', isShow: true },
+        { prop: 'express_expluce', label: '排除城市', isShow: true },
         { prop: 'express_source', label: '分配来源', isShow: true },
         { prop: 'express_advisory', label: '分配项目', isShow: true },
         { prop: 'nums', label: '分配资源数量', isShow: true },
@@ -215,6 +219,7 @@ export default {
         start_time: '',
         end_time: '',
         express_address: '',
+        express_expluce: '',
         express_source: '',
         express_advisory: '',
         nums: 1,
@@ -274,6 +279,7 @@ export default {
       this.dialogForm.start_time = data.start_time
       this.dialogForm.end_time = data.end_time
       this.dialogForm.express_address = data.express_address
+      this.dialogForm.express_expluce = data.express_expluce
       this.dialogForm.express_source = data.express_source
       this.dialogForm.express_advisory = data.express_advisory
       this.dialogForm.nums = data.nums

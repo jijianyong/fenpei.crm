@@ -44,9 +44,24 @@ class Automatic
                 $nums = $d['nums'];
                 $startTime = $d['start_time'];
                 $endTime = $d['end_time'];
-                $oAddess = mb_convert_encoding(strstr($o['express_address'],"+",true),'utf-8');
+                $oAddess = mb_convert_encoding(get_front_string($o['express_address'],"+"),'utf-8');
+                if (empty($oAddess)) {
+                    $oAddess = '空值';
+                }
+                $oExpluce = mb_convert_encoding(get_behind_string($o['express_address'],"+"),'utf-8');
+                if (empty($oExpluce)) {
+                    $oExpluce = '空值';
+                }
                 $dAddess = mb_convert_encoding($d['express_address'],'utf-8');
+                $dExpluce = mb_convert_encoding($d['express_expluce'],'utf-8'); // 获取排除城市
+                if (empty($dExpluce)) {
+                    $dExpluce = '空值';
+                }
                 $oSource = mb_convert_encoding($o['express_source'],'utf-8');
+                
+                if (empty($oSource)) {
+                    $oSource = '空值';
+                }
                 $dSource = mb_convert_encoding($d['express_source'],'utf-8');
                 $oAdvisory = $o['express_advisory'];
                 $dAdvisory = $d['express_advisory'];
@@ -55,7 +70,7 @@ class Automatic
                 if ($remark < $nums && ($startTime < $time_h) && ($time_h < $endTime)) {
 
                     // 步骤4、判断此条数据符合哪条分配规则，如果有找到符合分配规则的就打上用户标识，并且此条分配规则第一遍已经分配
-                    if (strpos($dAddess,$oAddess) !== false && strpos($dSource,$oSource) !== false && $oAdvisory == $dAdvisory) {
+                    if (strpos($dAddess,$oAddess) !== false && strpos($dSource,$oSource) !== false && strpos($dExpluce,$oExpluce) === false && $oAdvisory == $dAdvisory) {
                         // 判断通过，数量增加1
                         $new_remark = $remark + 1;
 

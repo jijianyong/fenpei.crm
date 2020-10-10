@@ -46,7 +46,7 @@ class Distribution extends Base
                 ->alias('d')
                 ->join('tq_admin a','a.id=d.uid','left')
                 ->where($where)
-                ->field(['d.id','d.uid','a.name','d.start_time','d.end_time','d.express_address','d.express_source','d.express_advisory','d.nums','d.status','d.remark'])
+                ->field(['d.id','d.uid','a.name','d.start_time','d.end_time','d.express_address','d.express_source','d.express_advisory','d.nums','d.status','d.remark','d.express_expluce'])
                 ->page($page, $size)
                 ->select();
 
