@@ -16,6 +16,14 @@ export function select(params) {
   })
 }
 
+export function assignSelect(params) {
+  return request({
+    url: '/setting/admin/AssignSelect',
+    method: 'get',
+    params
+  })
+}
+
 export function addAdmin(params) {
   return request({
     url: '/setting/admin/add',

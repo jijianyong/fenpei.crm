@@ -198,4 +198,10 @@ class Admin extends Base
         $result = db('admin')->select();
         json_return(0, '', $result);
     }
+
+    public function AssignSelect()
+    {
+        $result = db('admin')->field(['id','name','nickname'])->select();
+        json_return(0, '', $result);
+    }
 }

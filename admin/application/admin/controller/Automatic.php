@@ -38,6 +38,7 @@ class Automatic
 
             // 步骤2、循环分配规则
             foreach ($distribution_data as $dk => &$dis_value) {
+                // 获取需要判断的内容，express_address、express_expluce字段需要做特殊处理
                 $d = $dis_value;
                 $o = $ord_value;
                 $remark = db('auth_distribution')->where('id', $dis_value['id'])->value('remark');
@@ -58,7 +59,7 @@ class Automatic
                     $dExpluce = '空值';
                 }
                 $oSource = mb_convert_encoding($o['express_source'],'utf-8');
-                
+
                 if (empty($oSource)) {
                     $oSource = '空值';
                 }

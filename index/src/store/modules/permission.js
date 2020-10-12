@@ -14,6 +14,25 @@ function hasPermission(roles, route) {
 }
 
 /**
+ * 后台查询的菜单数据拼装成路由格式的数据
+ * @param routes
+ */
+// export function generaMenu(routes, data) {
+//   data.forEach(item => {
+//     const menu = {
+//       path: item.path,
+//       component: item.component,
+//       name: item.name,
+//       meta: { title: item.meta.title, icon: item.meta.icon }
+//     }
+//     if (item.children) {
+//       generaMenu(menu.children, item.children)
+//     }
+//     routes.push(menu)
+//   })
+// }
+
+/**
  * Filter asynchronous routing tables by recursion
  * @param routes asyncRoutes
  * @param roles
@@ -67,3 +86,4 @@ export default {
   mutations,
   actions
 }
+

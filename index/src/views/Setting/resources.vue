@@ -322,7 +322,7 @@ export default {
 
     // 获取用户下拉列表
     getAdminSelect() {
-      admin.select().then((res) => {
+      admin.assignSelect().then((res) => {
         this.permissions = res.data
       })
     },
