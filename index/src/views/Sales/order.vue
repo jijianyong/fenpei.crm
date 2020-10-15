@@ -552,11 +552,12 @@ export default {
         '\n' + '咨询页面：' + row.express_adviseryurl
       ]
       console.log(oInput.value.replace('/\n/g', ''))
-      document.body.appendChild(oInput)
+      document.body.appendChild(oInput) // 将临时组件加入到页面最底下
       oInput.select()
       document.execCommand('Copy')
       oInput.className = 'oInput'
       oInput.style.display = 'none'
+      document.body.removeChild(oInput) // 删除临时的textarea
     },
 
     // 打开新增窗口

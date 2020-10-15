@@ -139,6 +139,8 @@ class Order extends Base
 
             $id = $this->request->param('id');
             $param = $this->request->param();
+            unset($param['username']);
+            unset($param['prefix_moblie']);
 
             $Order = $this->model->get(['id' => $id]);
 

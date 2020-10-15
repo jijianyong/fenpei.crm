@@ -71,7 +71,7 @@ class Menu extends Model
      * @param int $id 记录ID
      * @return bool 布尔类型的返回结果
      */
-    public function delMeun($id)
+    public function delMenu($id)
     {
         return db('auth_menu')->where("id", 'in', $id)->delete();
     }
